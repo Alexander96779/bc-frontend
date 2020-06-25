@@ -132,6 +132,19 @@ margin-top: 25%;
     outline: none;
   }
 }
+.links{
+  margin-top: 5%;
+  
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    color: rgba(38, 129, 255, 0.65);
+    &:hover {
+      color: #000
+    }
+  }
+}
   .footer {
 text-align: center;
 font-size: 14px;
