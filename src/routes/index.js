@@ -5,6 +5,7 @@ import Signup from '../pages/Authentication/Signup';
 import VerifyEmail from '../pages/Authentication/Verification';
 import Login from '../pages/Authentication/Login';
 import Dashboard from '../pages/Dashboard';
+import ForgotPassword from '../pages/Authentication/ForgotPassword';
 
 export default function index() {
   return (
@@ -14,6 +15,7 @@ export default function index() {
           <Route path="/login" exact component={Login} />
           <Route path="/" exact component={Login} />
           <Route path="/dashboard" exact component={Dashboard} />
+          <Route path="/forgotPassword" exact component={ForgotPassword} />
         </Switch>
   );
 }
