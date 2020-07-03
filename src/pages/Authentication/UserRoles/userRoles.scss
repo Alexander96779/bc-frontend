@@ -1,0 +1,60 @@
+.table_wrapper {
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 600px;
+    background: #E5E5E5;
+    &_body {
+        float: right;
+        display: grid;
+        grid-gap: 5px;
+        width: 70%; 
+        margin-right: 20px;
+        &_head{
+            float: right;
+            margin-top: 20px;
+            display: grid;
+            grid-gap: 10px;
+            width: 70%; 
+            h2{
+                margin-top: 10px;
+            }
+        }
+       &_table{
+        display: grid;
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background: #FFFFFF;
+        }
+        thead{
+            background: #202020;
+            color: #FFFFFF;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+        
+        tr:nth-child(even){background-color: #f2f2f2}
+        
+    }
+}
+}
+
+.role-btn {
+    background-color: #202020;
+    border-radius: 30px !important;
+    padding: 6px 8px 6px 8px !important;
+    width: 80%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border: none !important;
+    border: 1px solid #F3E5F5 !important;
+    font-size: 16px !important;
+    color: white !important;
+    font-weight: bolder;
+    border: 1px solid #202020 !important;
+}
+.no-users-head {
+    text-align: center;
+}
