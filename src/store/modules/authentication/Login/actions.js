@@ -25,7 +25,7 @@ export const loginUser = (data) => async (dispatch) => {
   try {
     const response = await API.post('/auth/login', data);
     const { token } = response.data.data;
-    localStorage.setItem('broadcater_token', token);
+    localStorage.setItem('broadcaster_token', token);
     await dispatch(successLogin(response.data));
     history.push('/dashboard');
   } catch (error) {

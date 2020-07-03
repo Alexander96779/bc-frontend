@@ -7,6 +7,7 @@ import Login from '../pages/Authentication/Login';
 import Dashboard from '../pages/Dashboard';
 import ForgotPassword from '../pages/Authentication/ForgotPassword';
 import ResetPassword from '../pages/Authentication/ResetPassword';
+import UserRoles from '../pages/Authentication/UserRoles';
 
 export default function index() {
   return (
@@ -18,6 +19,7 @@ export default function index() {
           <Route path="/dashboard" exact component={Dashboard} />
           <Route path="/forgotPassword" exact component={ForgotPassword} />
           <Route path="/resetPassword" exact component={ResetPassword} />
+          <Route path="/changeRole" exact component={UserRoles} />
         </Switch>
   );
 }
