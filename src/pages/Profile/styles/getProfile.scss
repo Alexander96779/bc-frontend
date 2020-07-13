@@ -1,0 +1,107 @@
+.profile_wrapper {
+    width: 100%;
+    overflow-x: hidden;
+    background: #E5E5E5;
+    display: grid;
+	grid-gap: 10px;
+    height: 100vh;
+    &_coverimage {
+        margin-top: 40px;
+        width: 100%;
+        min-height: 250px;
+        background: url(../../../assets/images/people.jpg);
+        margin-left: 20px;
+    }
+    &_feed{
+        width: 70%;
+        height: 130%;
+        background: #fff;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 10px;
+        margin-top: -60px;
+        margin-left: 350px;
+        &_part1{
+            width: 100%;
+            display: grid;
+            grid-template-columns: 120px 320px;
+            grid-gap: 5px;
+            img{
+                width:120px;
+                height:120px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-left: 5px;
+                margin-top: 5px;
+            }
+            h5{
+                margin-left: 5px;
+                border-bottom: 2px solid rgb(32,32,32);
+            }
+            &_names{
+                margin-left: 5px;
+                p{
+                    margin-top: -25px;
+                }
+            }
+        }
+        &_part2 {
+            text-align: center;
+            margin-top: 60px;
+            width: 100%;
+            margin-left: 40px;
+            a{
+                text-decoration: none;
+            }
+            .edit_btn {
+                display: block;
+                width: 115px;
+                height: 25px;
+                background: rgb(32,32,32);
+                padding: 10px;
+                text-align: center;
+                border-radius: 10px;
+                color: white;
+                font-weight: bold;
+                line-height: 25px;
+            }
+        }
+    }
+    &_card {
+        width: 70%;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 10px;
+        margin-left: 350px;
+        margin-top: -15px;
+        &_part1{
+            background: #fff;
+            width: 200px;
+            h4{
+                margin-left: 30px;
+            }
+            p{
+                margin-left: 30px;
+                margin-top: -10px;
+            }
+            .icon {
+                position: relative;
+                width: 24px;
+                background: url('../../../assets/images/icons8-plus-24\ \(1\).png') no-repeat center;
+                opacity: 0.4;
+                margin-right: 10px;
+              }
+        }
+        &_part2{
+            background: #fff;
+            h4{
+                text-align: center;
+            }
+            p{
+                text-align: center;
+                margin-left: 100px;
+                margin-right: 100px;
+            }
+        }
+    }
+}
