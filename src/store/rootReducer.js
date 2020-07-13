@@ -5,6 +5,7 @@ import logInUser from './modules/authentication/Login/reducer';
 import passwordForgot from './modules/authentication/ForgotPassword/reducer';
 import passwordReset from './modules/authentication/ResetPassword/reducer';
 import getAllUsers from './modules/authentication/UserRoles/reducer';
+import userProfile from './modules/Profile/reducer';
 
 const rootReducer = combineReducers({
   signUpUser,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   logInUser,
   passwordForgot,
   passwordReset,
-  getAllUsers
+  getAllUsers,
+  userProfile
 });
 export default rootReducer;

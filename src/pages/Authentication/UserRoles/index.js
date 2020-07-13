@@ -1,10 +1,18 @@
+/* eslint-disable operator-linebreak */
+/* eslint-disable no-extra-boolean-cast */
 /* eslint-disable arrow-body-style */
 /* eslint-disable object-curly-newline */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import jwtDecode from 'jwt-decode';
 import Button from '../../../components/Button';
 import './userRoles.scss';
 import { viewUsers } from '../../../store/modules/authentication/UserRoles/actions';
+import AuthService from '../../../utils/AuthService';
+import DynamiDashboard from '../../../components/DynamicDashboard/Dashboard';
+import profileImg from '../../../assets/icons/icons8-user-30.png';
+import { requesterDashboard, adminDashboard } from '../../../assets/sidebar';
+import Spinner from '../../../components/Spinner';
 
 class UserRoles extends Component {
   constructor(props) {
@@ -19,6 +27,10 @@ class UserRoles extends Component {
   }
 
   render() {
+    const token = AuthService.getToken();
+    const { role } = !!token ? jwtDecode(token) : { role: '' };
+    const board = role === 'requester' ? requesterDashboard :
+      adminDashboard;
     const { users } = this.props;
     const renderTable = () => (
       users.users.length > 0
@@ -38,7 +50,9 @@ class UserRoles extends Component {
           );
         }) : <div className="no-users-head"><h2>No users found!!!</h2></div>
     );
-    return (
+    return users.isLoading ? (
+      <Spinner />
+    ) : (
             <div className="table_wrapper">
             <div className="table_wrapper_body">
             <div className="table_wrapper_body_head">
@@ -60,6 +74,10 @@ class UserRoles extends Component {
             </table>
             </div>
             </div>
+            <DynamiDashboard
+              properties={board}
+              profile={profileImg}
+              />
             </div>
     );
   }
