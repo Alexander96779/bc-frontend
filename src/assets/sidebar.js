@@ -7,23 +7,23 @@ import users from './icons/icons8-user-group-30.png';
 export const requesterDashboard = {
   head: 'REQUESTER',
   topLeftHeader: {
-    head: 'Trip requests',
-    description: 'All my trip requests',
+    head: 'Dashboard',
+    description: 'Requester user dashboard',
   },
   links: [
     {
-      name: 'My Bookings',
-      path: 'booking',
+      name: 'New incident',
+      path: 'create',
       icon: bookIcon
     },
     {
-      name: 'Trip Requests',
-      path: 'request',
+      name: 'My incidents',
+      path: 'incidents',
       icon: trip
     },
     {
-      name: 'Accommodations',
-      path: 'accommodation',
+      name: 'Rejected',
+      path: 'rejectedIncidents',
       icon: accomodations
     },
   ]
@@ -31,20 +31,28 @@ export const requesterDashboard = {
 
 export const adminDashboard = {
   head: 'ADMIN',
-  topLeftHeader: { head: 'Dashboard' },
+  topLeftHeader: {
+    head: 'Dashboard',
+    description: 'System Administrator'
+  },
   links: [
     {
       name: 'Users',
-      path: 'user',
+      path: 'changeRole',
       icon: users
     },
     {
-      name: 'Trip Requests',
-      path: 'request',
+      name: 'incidents',
+      path: 'allIncidents',
       icon: trip
     },
     {
-      name: 'Accommodations',
+      name: 'Accepted',
+      path: 'accommodation',
+      icon: accomodations
+    },
+    {
+      name: 'Rejected',
       path: 'accommodation',
       icon: accomodations
     },

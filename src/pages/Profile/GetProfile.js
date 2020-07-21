@@ -50,7 +50,7 @@ class GetProfile extends Component {
                         </div>
                     </div>
                     <div className="profile_wrapper_feed_part2">
-                        <a href="" className="edit_btn">Edit profile</a>
+                        <a href="/editProfile" className="edit_btn">Edit profile</a>
                     </div>
                 </div>
                 <div className="profile_wrapper_card">
