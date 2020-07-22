@@ -18,8 +18,8 @@ class Dashboard extends Component {
     const { properties } = this.props;
     const { links } = properties;
     const side = !!links ? (
-      links.map((menu) => (
-        <li>
+      links.map((menu, index) => (
+        <li key={index}>
           <NavLink to={`/${menu.path}`} className="dynamic_sidebar_main_component1">
             <img src={menu.icon} alt={menu.name} className="dynamic_sidebar_main_component1_icon" />
             <p className="dynamic_sidebar_main_component1_text">{menu.name}</p>

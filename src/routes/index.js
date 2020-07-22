@@ -11,6 +11,7 @@ import UserRoles from '../pages/Authentication/UserRoles';
 import GetProfile from '../pages/Profile/GetProfile';
 import EditProfile from '../pages/Profile/EditProfile';
 import CreateIncident from '../pages/incident/create';
+import ViewIncidents from '../pages/incident/view';
 
 export default function index() {
   return (
@@ -26,6 +27,7 @@ export default function index() {
           <Route path="/profile" exact component={GetProfile} />
           <Route path="/editProfile" exact component={EditProfile} />
           <Route path="/create" exact component={CreateIncident} />
+          <Route path="/incidents" exact component={ViewIncidents} />
         </Switch>
   );
 }
