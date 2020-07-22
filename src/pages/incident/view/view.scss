@@ -1,0 +1,53 @@
+.view_wrapper{
+    width: 100%;
+    overflow-x: hidden;
+    background: #E5E5E5;
+    display: grid;
+    grid-gap: 10px;
+    min-height: 600px;
+    &_head{
+        width: 70%;
+        margin-left: 350px;
+        margin-top: 50px;
+        h2{
+            border-bottom: 2px black solid;
+        }
+    }
+    &_body{
+        width: 70%;
+        margin-left: 350px;
+        margin-right: 50px;
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: -20px;
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        &_card{
+            border: 2px black solid;
+            height: 400px;
+            img{
+                height: 250px;
+                width: 100%;
+            }
+            h3{
+                margin-top: -10px;
+                margin-left: 5px;
+            }
+            p{
+                margin-top: -15px;
+                margin-left: 5px;
+            }
+            small{
+                float: right;
+                margin-right: 5px;
+                margin-top: 10px;
+            }
+        }
+        &_noincident{
+            text-align: center;
+        }
+    }
+}
