@@ -1,0 +1,58 @@
+.specific_wrapper{
+    width: 100%;
+    overflow-x: hidden;
+    background: #E5E5E5;
+    display: grid;
+    grid-gap: 10px;
+    min-height: 600px;
+    &_card{
+        width: 60%;
+        height: 400px;
+        margin-left: 350px;
+        margin-right: 50px;
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
+        background: #fff;
+        margin-top: 80px;
+        &_part1{
+            img{
+                height: 100%;
+                width: 100%;
+                border-radius: 50%;
+            }
+        }
+        &_part2{
+            &_head{
+                margin-right: 10px;
+                margin-left: 10px;
+                h2{
+                    text-align: center;
+                }
+            }
+            &_body{
+                margin-top: -10px;
+                margin-right: 10px;
+                margin-left: 10px;
+                small{
+                    float: right;
+                    font-size: 12px;
+                }
+            }
+            &_footer{
+                display: grid;
+                grid-gap: 10px;
+                grid-template-columns: repeat(2, 1fr);
+                margin-top: 50px;
+                margin-right: 10px;
+                margin-left: 10px;
+                &_delete-btn{
+                    .btn{
+                    
+                    background: #990000;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -12,6 +12,7 @@ import GetProfile from '../pages/Profile/GetProfile';
 import EditProfile from '../pages/Profile/EditProfile';
 import CreateIncident from '../pages/incident/create';
 import ViewIncidents from '../pages/incident/view';
+import ViewSpecific from '../pages/incident/specific';
 
 export default function index() {
   return (
@@ -28,6 +29,7 @@ export default function index() {
           <Route path="/editProfile" exact component={EditProfile} />
           <Route path="/create" exact component={CreateIncident} />
           <Route path="/incidents" exact component={ViewIncidents} />
+          <Route path="/readmore" exact component={ViewSpecific} />
         </Switch>
   );
 }
