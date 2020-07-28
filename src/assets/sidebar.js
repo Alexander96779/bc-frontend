@@ -42,8 +42,8 @@ export const adminDashboard = {
       icon: users
     },
     {
-      name: 'incidents',
-      path: 'allIncidents',
+      name: ' All incidents',
+      path: 'incidents',
       icon: trip
     },
     {

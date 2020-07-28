@@ -39,7 +39,7 @@ class ViewIncidents extends Component {
                 {incidents && incidents.incidents.length > 0 ?
                   incidents.incidents.map((incident, index) => (
                     <div key={incident.id}>
-                <a href="/readmore">
+                <a href={`/readmore/?id=${incident.id}`}>
                 <div className="view_wrapper_body_card">
                 <img src={incident.image_url || defaultImg} alt="incident pic" />
                   <h3>{incident.title}</h3>
