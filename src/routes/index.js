@@ -13,6 +13,7 @@ import EditProfile from '../pages/Profile/EditProfile';
 import CreateIncident from '../pages/incident/create';
 import ViewIncidents from '../pages/incident/view';
 import ViewSpecific from '../pages/incident/specific';
+import Popup from '../components/Popup';
 
 export default function index() {
   return (
@@ -30,6 +31,7 @@ export default function index() {
           <Route path="/create" exact component={CreateIncident} />
           <Route path="/incidents" exact component={ViewIncidents} />
           <Route path="/readmore" exact component={ViewSpecific} />
+          <Route path="/popup" exact component={Popup} />
         </Switch>
   );
 }
