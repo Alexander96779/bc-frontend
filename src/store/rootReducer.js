@@ -9,6 +9,8 @@ import userProfile from './modules/Profile/reducer';
 import incidentCreate from './modules/incident/create/reducer';
 import getAll from './modules/incident/view/reducers';
 import specificIncident from './modules/incident/specific/reducers';
+import editIncident from './modules/incident/update/reducers';
+import removeIncident from './modules/incident/delete/reducer';
 
 const rootReducer = combineReducers({
   signUpUser,
@@ -20,6 +22,8 @@ const rootReducer = combineReducers({
   userProfile,
   incidentCreate,
   getAll,
-  specificIncident
+  specificIncident,
+  editIncident,
+  removeIncident
 });
 export default rootReducer;

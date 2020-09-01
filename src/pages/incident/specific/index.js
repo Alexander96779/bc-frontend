@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import { findOne } from '../../../store/modules/incident/specific/actions';
 import { editIncident } from '../../../store/modules/incident/update/actions';
+import { deleteIncident } from '../../../store/modules/incident/delete/actions';
 import defaultImg from '../../../assets/images/broadcaster1.png';
 import Spinner from '../../../components/Spinner';
 import DynamicDashboard from '../../../components/DynamicDashboard/Dashboard';
@@ -23,6 +24,7 @@ class ViewSpecific extends Component {
       incident: '',
       error: null,
       showPopup: false,
+      message: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -48,6 +50,10 @@ class ViewSpecific extends Component {
       formData.append(key, value);
     });
     await updateIncident(formData);
+  }
+
+  async deleteRecord() {
+    await this.props.destroyIncident();
   }
 
   render() {
@@ -89,6 +95,7 @@ class ViewSpecific extends Component {
                       <Button
                       value="Delete"
                       className="btn"
+                      onClick={this.deleteRecord.bind(this)}
                       />
                     </div>
                     </div>
@@ -110,6 +117,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   viewOne: () => dispatch(findOne()),
   updateIncident: (data) => dispatch(editIncident(data)),
+  destroyIncident: () => dispatch(deleteIncident()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ViewSpecific);
