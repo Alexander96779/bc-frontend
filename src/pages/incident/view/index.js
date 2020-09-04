@@ -1,12 +1,15 @@
+/* eslint-disable no-extra-boolean-cast */
 /* eslint-disable no-unused-vars */
 /* eslint-disable operator-linebreak */
 /* eslint-disable object-curly-newline */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
+import jwtDecode from 'jwt-decode';
 import defaultImg from '../../../assets/images/broadcaster1.png';
 import DynamicDashboard from '../../../components/DynamicDashboard/Dashboard';
-import { requesterDashboard } from '../../../assets/sidebar';
+import { requesterDashboard, adminDashboard } from '../../../assets/sidebar';
+import AuthService from '../../../utils/AuthService';
 import profileImg from '../../../assets/icons/icons8-user-30.png';
 import Spinner from '../../../components/Spinner';
 import { viewAll } from '../../../store/modules/incident/view/actions';
@@ -27,6 +30,10 @@ class ViewIncidents extends Component {
   }
 
   render() {
+    const token = AuthService.getToken();
+    const { role } = !!token ? jwtDecode(token) : { role: '' };
+    const board = role === 'requester' ? requesterDashboard :
+      adminDashboard;
     const { incidents } = this.props;
     return incidents.isLoading ? (
         <Spinner />
@@ -57,7 +64,7 @@ class ViewIncidents extends Component {
                     }
                 </div>
                 <DynamicDashboard
-                 properties = {requesterDashboard}
+                 properties = {board}
                  profile = {profileImg}
                 />
             </div>

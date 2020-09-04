@@ -11,6 +11,7 @@ import getAll from './modules/incident/view/reducers';
 import specificIncident from './modules/incident/specific/reducers';
 import editIncident from './modules/incident/update/reducers';
 import removeIncident from './modules/incident/delete/reducer';
+import acceptRejectIncident from './modules/incident/accept and reject/reducer';
 
 const rootReducer = combineReducers({
   signUpUser,
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   getAll,
   specificIncident,
   editIncident,
-  removeIncident
+  removeIncident,
+  acceptRejectIncident
 });
 export default rootReducer;

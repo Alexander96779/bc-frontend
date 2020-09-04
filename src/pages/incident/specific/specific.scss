@@ -47,9 +47,30 @@
                 margin-right: 10px;
                 margin-left: 10px;
                 &_delete-btn{
-                    .btn{
-                    
+                    .btn{       
                     background: #990000;
+                    }
+                }
+                &_accept-btn{
+                    .btn{
+                        background: #fff;
+                        border: 2px solid #202020;
+                        background-image: none;
+                        color: black !important;
+                    }
+                    .btn:hover{
+                        background: #E5E5E5;
+                    }
+                }
+                &_reject-btn{
+                    .btn{
+                        background: #fff;
+                        border: 2px solid #202020;
+                        background-image: none;
+                        color: black !important;
+                    }
+                    .btn:hover{
+                        background: #E5E5E5;
                     }
                 }
             }
