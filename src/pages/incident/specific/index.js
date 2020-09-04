@@ -1,16 +1,20 @@
+/* eslint-disable no-extra-boolean-cast */
 /* eslint-disable operator-linebreak */
 /* eslint-disable no-lone-blocks */
 /* eslint-disable object-curly-newline */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
+import jwtDecode from 'jwt-decode';
+import AuthService from '../../../utils/AuthService';
 import { findOne } from '../../../store/modules/incident/specific/actions';
 import { editIncident } from '../../../store/modules/incident/update/actions';
 import { deleteIncident } from '../../../store/modules/incident/delete/actions';
+import { acceptIncident, rejectIncident } from '../../../store/modules/incident/accept and reject/actions';
 import defaultImg from '../../../assets/images/broadcaster1.png';
 import Spinner from '../../../components/Spinner';
 import DynamicDashboard from '../../../components/DynamicDashboard/Dashboard';
-import { requesterDashboard } from '../../../assets/sidebar';
+import { requesterDashboard, adminDashboard } from '../../../assets/sidebar';
 import profileImg from '../../../assets/icons/icons8-user-30.png';
 import Button from '../../../components/Button';
 import Popup from '../../../components/Popup';
@@ -56,7 +60,19 @@ class ViewSpecific extends Component {
     await this.props.destroyIncident();
   }
 
+  async accept() {
+    await this.props.incidentAcception();
+  }
+
+  async reject() {
+    await this.props.incidentRejection();
+  }
+
   render() {
+    const token = AuthService.getToken();
+    const { role } = !!token ? jwtDecode(token) : { role: '' };
+    const board = role === 'requester' ? requesterDashboard :
+      adminDashboard;
     const { incident } = this.props;
     return incident.isLoading ? (
             <Spinner />
@@ -84,6 +100,7 @@ class ViewSpecific extends Component {
                     <small><b>Written on:</b> {`${moment(incident.createdAt).format('L')}`}</small>
                     </div>
                     <div className="specific_wrapper_card_part2_footer">
+                      { role === 'requester' ?
                     <div className="specific_wrapper_card_part2_footer_edit-btn">
                       <Button
                       value="Edit"
@@ -91,6 +108,15 @@ class ViewSpecific extends Component {
                       onClick={this.togglePopup.bind(this)}
                       />
                     </div>
+                        : <div className="specific_wrapper_card_part2_footer_accept-btn">
+                      <Button
+                      value="Accept"
+                      className="btn"
+                      onClick={this.accept.bind(this)}
+                      />
+                    </div>
+                       }
+                    { role === 'requester' ?
                     <div className="specific_wrapper_card_part2_footer_delete-btn">
                       <Button
                       value="Delete"
@@ -98,11 +124,19 @@ class ViewSpecific extends Component {
                       onClick={this.deleteRecord.bind(this)}
                       />
                     </div>
+                      : <div className="specific_wrapper_card_part2_footer_reject-btn">
+                     <Button
+                     value="Reject"
+                     className="btn"
+                     onClick={this.reject.bind(this)}
+                     />
+                   </div>
+                       }
                     </div>
                     </div>
                 </div>
                 <DynamicDashboard
-                 properties = {requesterDashboard}
+                 properties = {board}
                  profile = {profileImg}
                 />
             </div>
@@ -118,6 +152,8 @@ const mapDispatchToProps = (dispatch) => ({
   viewOne: () => dispatch(findOne()),
   updateIncident: (data) => dispatch(editIncident(data)),
   destroyIncident: () => dispatch(deleteIncident()),
+  incidentAcception: () => dispatch(acceptIncident()),
+  incidentRejection: () => dispatch(rejectIncident()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ViewSpecific);
